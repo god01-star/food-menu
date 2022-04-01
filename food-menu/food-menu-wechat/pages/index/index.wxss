@@ -1,0 +1,177 @@
+/**index.wxss**/
+.food-item{
+  display: flex;
+  width: 100%;
+  padding: 0.5rem;
+  align-items: center;
+
+}
+.food-image image{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 4px;
+  box-shadow: 2px 3px 6px gainsboro;
+}
+.food-name{
+  padding-left: 1rem;
+  font-size: 13pt;
+  text-shadow: 2px 3px 6px gainsboro;
+}
+.topSearch{
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+}
+.topSearch input{
+  padding: 0.5rem;
+  margin: 1rem;
+  border-radius: 4px;
+  box-shadow: 2px 3px 10px gainsboro;
+}
+.food-box, .food-detail{
+  margin-top: 8rem;
+}
+.food-detail{
+  padding: 1.5rem;
+}
+.food-info > .food-info-base{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+.food-info > .food-info-base > .item{
+  text-align: center;
+  width: 4rem;
+  height: 6rem;
+  color: #ffffff;
+  background-color: rgba(247,82,68, 0.7);
+  border-radius: 4px;
+  box-shadow: 2px 3px 10px gainsboro;
+}
+.food-info > .food-info-base > .item > .item-title{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.food-info > .food-info-base > .item > .item-title-detail{
+  font-size: 11pt;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.food-info > .food-info-base2{
+  margin-top: 1.5rem;
+}
+.food-info > .food-info-base2 > .item{
+  background-color: white;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 2px 3px 10px gainsboro;
+}
+.food-info > .food-info-base2 > .item > .item-title{
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 3rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: orange;
+  font-weight: bold;
+}
+.food-info > .food-info-base2 > .item > .item-content-box{
+  font-size: 11pt;
+  color: #ffffff;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+.food-info > .food-info-base2 > .item > .item-content-box > .item-content{
+  background-color: orange;
+  padding: 5px;
+  border-radius: 4px;
+  margin: 5px;
+}
+.step > .step-item {
+  margin-top: 1rem;
+  box-shadow: 2px 3px 10px gainsboro;
+}
+.step > .step-item > .step-content > .step-num{
+  font-size: 13pt;
+  font-style: italic;
+  font-weight: bold;
+  background-color: orange;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 5px;
+}
+.step > .step-item > .step-content > .step-image{
+  padding-top: 0.5rem;
+}
+.step > .step-item > .step-content > .step-image > .step-describe{
+  padding: 5px;
+}
+.skill-title{
+  margin-top: 1rem;
+  background-color: orange;
+  padding: 0.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.detail-top{
+  display: flex;
+  flex-direction: row;
+}
+.detail-top > .back{
+  background-color: gray;
+  color: white;
+  border-radius: 4px;
+  padding: 0 5px;
+}
+.detail-top > .detail-title{
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.list-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  box-shadow: 2px 3px 6px gainsboro;
+}
+.nodata{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+.remove{
+  padding: 0 10px;
+}
+.item-box{
+  display: flex;
+  /* width: 100%; */
+  align-items: center;
+  margin: 1rem;
+  border-radius: 4px;
+  box-shadow: 2px 3px 6px gainsboro;
+}
+.icon-item,left-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

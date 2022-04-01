@@ -1,0 +1,136 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 搜索 -->
+  <view class="topSearch">
+    <input type="text" confirm-type="search" bindinput="listenInput" bindconfirm="searchFood"
+      placeholder="{{searchType=='newList'?'输入菜名':'输入收藏菜名'}}" />
+    <view class="list-header">
+      <view class="left-text">
+        <text wx:if="{{!showDetail}}">{{searchType=='newList'?'最新菜谱':'收藏列表'}}</text>
+        <view wx:if="{{showDetail}}" bindtap="backList">
+          <mp-icon type="field" icon="back" color="black" size="{{15}}"></mp-icon>
+          <text style="padding-left:5px;">返回</text>
+        </view>
+      </view>
+      <view class="right-option">
+        <view class="icon-item" wx:if="{{searchType=='newList'&&!showDetail}}" type="info" bindtap="showCollectionFood">
+          <mp-icon type="field" icon="like" color="red" size="{{30}}"></mp-icon>
+          <text>查看收藏</text>
+        </view>
+        <view class="icon-item" wx:if="{{showDetail}}" type="info" bindtap="collectionFood">
+          <mp-icon type="{{foodDetail.isCollection?'field':'outline'}}" icon="like" color="red" size="{{30}}"></mp-icon>
+          <text>{{foodDetail.isCollection?'已收藏':'收藏'}}</text>
+        </view>
+        <view class="icon-item" wx:if="{{searchType=='collection'&&!showDetail}}" type="info" bindtap="loadFoodList">
+          <mp-icon type="field" icon="back" color="black" size="{{15}}"></mp-icon>
+          <text style="padding-left:5px;">返回列表</text>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <!-- 菜谱列表 -->
+<!--   <view class="container">
+    <view vx:for="{{foodList}}">
+       <view class="food-item"></view>
+      {{item.foodName}}
+    </view>
+  </view> -->
+ <view wx:if="{{!showDetail}}" class="food-box">
+    <view class="nodata" wx:if="{{foodList.length==0}}">
+      <image src="../../assets/nocollection.png" />
+      <text>空空如也~~~</text>
+    </view>
+    <view wx:for="{{foodList}}" wx:key="*this">
+    {{item.foodName}}
+      <view class="item-box">
+        <view class="food-item" bindtap="getFoodDetail" data-food="{{item}}">
+          <view class="food-image">
+            <image mode="aspectFill" src="{{item.foodImage}} "></image>
+          </view>
+          <view class="food-name">
+            {{item.foodName}}
+          </view>
+        </view>
+        <view class="option-box">
+          <view wx:if="{{searchType=='collection'}}" class="remove" bindtap="removeCollection" data-food="{{item}}">
+            <mp-icon icon="delete" type="field"></mp-icon>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 菜谱详情 -->
+  <view class="food-detail" wx:if="{{showDetail}}">
+    <view class="detail-top">
+      <view class="detail-title">{{currentFoodTitle}}</view>
+    </view>
+    <!-- 成品轮播图 -->
+    <swiper indicator-dots="true" autoplay="true" interval="3000">
+      <block wx:for="{{foodDetail.showFoodImageList}}" wx:key="*this">
+        <swiper-item>
+          <view class="swiper-item">
+            <image mode="aspectFit" src="{{item}}"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 菜谱信息介绍 -->
+    <view class="food-info">
+      <view class="food-info-base">
+        <view class="item">
+          <view class="item-title">工艺</view>
+          <view class="item-title-detail">{{foodDetail.workmanship}}</view>
+        </view>
+        <view class="item">
+          <view class="item-title">口味</view>
+          <view class="item-title-detail">{{foodDetail.flavor}}</view>
+        </view>
+        <view class="item">
+          <view class="item-title">时间</view>
+          <view class="item-title-detail">{{foodDetail.time}}</view>
+        </view>
+        <view class="item">
+          <view class="item-title">难度</view>
+          <view class="item-title-detail">{{foodDetail.difficultyLevel}}</view>
+        </view>
+      </view>
+      <view class="food-info-base2">
+        <view class="item">
+          <view class="item-title">主料</view>
+          <view class="item-content-box">
+            <view class="item-content" wx:for="{{foodDetail.mainMaterialList}}" wx:key="*this">{{item}}</view>
+          </view>
+
+        </view>
+        <view class="item">
+          <view class="item-title">辅料</view>
+          <view class="item-content-box">
+            <view class="item-content" wx:for="{{foodDetail.accessoriesList}}" wx:key="*this">{{item}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 步骤 -->
+      <view class="step">
+        <view class="step-item" wx:for="{{foodDetail.foodStepList}}" wx:key="*this">
+          <view class="step-content">
+            <view class="step-num">步骤： {{item.step}}</view>
+            <view class="step-image">
+              <image src="{{item.stepDescribeImageUrl}}" mode="aspectFit"></image>
+            </view>
+            <view class="step-describe">{{item.stepDescribe}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 烹饪技巧 -->
+      <view class="skill">
+        <view class="skill-title">烹饪技巧</view>
+        <view class="skill-item" wx:for="{{foodDetail.cookSkill}}" wx:key="*this">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
