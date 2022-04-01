@@ -1,0 +1,7 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /food-menu
+wx:
+  appId: wx943dee8b7e3224fd
+  secretId: 80ac34369b3f65ac87df55f95730eda1
